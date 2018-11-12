@@ -27,7 +27,7 @@
                         @forelse ($my_wishlist as $appliance)
                             <tr>
                                 <td width="650px">{{ $appliance->title }}</td>
-                                <td>{{ $appliance->price }}€</td>
+                                <td>{{ number_format ( $appliance->price , 2 , "." , "," ) }}€</td>
                                 <td width="20px"></td>
                                 @if (Auth::check())
                                     <td width="20px">

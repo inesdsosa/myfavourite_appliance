@@ -72,13 +72,6 @@ class SourceWebScrapting  implements SourceInterface
                     ['reference' => $reference],
                 $appliance
             );
-/*
-            $product = new Appliance();
-            $product->title = $text;
-            $product->price = $this->getPrice($nodeProduct->filter(self::PRECIO_DELIMITER)->first()->text());
-            $product->reference = $this->getReference(trim($text));
-            $product->source_url_id = 1;
-            $product->save();*/
         });
     }
 
@@ -99,6 +92,7 @@ class SourceWebScrapting  implements SourceInterface
      */
     protected function getPrice(String $price){
         $price = str_replace('€', '', $price);
+        $price = str_replace(',', '', $price);
         $price = trim($price);
         return $price;
     }
